@@ -1,8 +1,8 @@
 name: "Hello World Work flow"
 
 on: 
-    push:
-     branches:
+  push:
+    branches:
         - master
         - production
 
@@ -11,7 +11,7 @@ on:
 
 
 jobs:
- hello_world:
+  hello_world:
     runs-on: ubuntu-latest
     steps:
       - name: "Print Hello World"
