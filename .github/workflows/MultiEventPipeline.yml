@@ -9,9 +9,14 @@ on:
         branches:
             - master
             - test
+        types:
+            - closed
     workflow_dispatch:
+    
+
+
 jobs:
-   on-push: #job name
+   on-push: #job 1
        if: github.event_name =='push'
        runs-on: ubuntu-latest
        steps:  #steps to be executed in the jobs
@@ -19,9 +24,16 @@ jobs:
               run: echo "Running on master push"
 
 
-   on-pull-request: #job name 
-       if: github.event_name == 'pull_request'
+   on-pull-request: #job 2
+       if: github.event_name =='push_request'
        runs-on: ubuntu-latest
-       steps: # steps to be executed in the job
-            - name: "Running on pull request"  # Step 1
-              run: "Running on pull request"       
+       steps:  #steps to be executed in the jobs
+            - name: "Running on pull request"  #step 1
+              run: echo "Running on pull request"
+
+   on-workflow-dispatch: #job e
+       if: github.event_name =='workflow_dispatch'
+       runs-on: ubuntu-latest
+       steps:  #steps to be executed in the jobs
+            - name: "Running on workflow dispatch"
+              run: echo "Running on workflow request"
