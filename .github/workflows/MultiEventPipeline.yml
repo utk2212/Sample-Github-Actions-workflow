@@ -1,15 +1,27 @@
 name: "Multi Enent Pipeline / workflow" # Name of the pipeline
 
 on: 
-   push:   #Event: whenever a push is made to the repositry on the master / test branch.
+    push:   #Event: whenever a push is made to the repositry on the master / test branch.
        branches:
             - master
             - test
-
+    pull_request: #Event: whenever a pull request is made to the repository
+        branches:
+            - master
+            - test
 
 jobs:
    on-push: #job name
+       if: github.event_name =='push'
        runs-on: ubuntu-latest
        steps:  #steps to be executed in the jobs
             - name: "Running on master push"  #step 1
               run: echo "Running on master push"
+
+
+   on-pull-request: #job name 
+       if: github.event_name == 'pull_request'
+       runs-on: ubuntu-latest
+       steps: # steps to be executed in the job
+            - name: "Running on pull request"  # Step 1
+              run: "Running on pull request"       
