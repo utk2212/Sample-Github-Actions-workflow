@@ -1,10 +1,10 @@
 name: "Multi Enent Pipeline / workflow" # Name of the pipeline
 
 on: 
-   push:   #Event: whenever a push is made to the repositry on the master branch.
+   push:   #Event: whenever a push is made to the repositry on the master / test branch.
        branches:
             - master
-
+            - test
 
 
 jobs:
