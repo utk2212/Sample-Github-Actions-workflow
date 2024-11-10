@@ -9,7 +9,7 @@ on:
         branches:
             - master
             - test
-
+    workflow_dispatch:
 jobs:
    on-push: #job name
        if: github.event_name =='push'
